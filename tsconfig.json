@@ -22,6 +22,16 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/components/ui/Link/Link.jsx",
+    "app/components/ui/Button/Button.jsx",
+    "app/components/LatestArrivalsSection.jsx",
+    "app/components/ui/Button/index.js",
+    "app/components/ui/Link/index.js"
+  ],
   "exclude": ["node_modules"]
 }
