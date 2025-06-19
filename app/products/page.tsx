@@ -1,9 +1,9 @@
 'use client'
-import { useSearchParams } from 'next/navigation'
 import ProductListingContextProvider from './components/ProductListingContext'
 import clsx from 'clsx'
 import Filter from './components/Filter'
 import SortByFilter from './components/SortByFilter'
+import ProductListingSection from './components/ProductListingSection'
 
 const ProductListingPage = () => {
   return (
@@ -24,6 +24,26 @@ const ProductListingPage = () => {
           <Filter />
           <div className='block lg:hidden'>
             <SortByFilter />
+          </div>
+        </div>
+
+        <div
+          className={clsx(
+            'col-span-4 md:col-span-6  lg:col-span-9',
+            'flex flex-col items-end gap-8'
+          )}
+        >
+          <div className='hidden lg:block'>
+            <SortByFilter />
+          </div>
+
+          <div
+            className={clsx(
+              'h-full w-full',
+              'grid grid-cols-4 gap-8 md:grid-cols-6 lg:grid-cols-9'
+            )}
+          >
+            <ProductListingSection />
           </div>
         </div>
       </div>

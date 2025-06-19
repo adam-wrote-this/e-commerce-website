@@ -1,3 +1,4 @@
+'use client'
 import clsx from 'clsx'
 import { useState, useRef, createContext, useContext } from 'react'
 import { RiAddCircleLine, RiIndeterminateCircleLine } from 'react-icons/ri'

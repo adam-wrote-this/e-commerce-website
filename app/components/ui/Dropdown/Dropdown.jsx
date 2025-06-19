@@ -62,7 +62,7 @@ const Dropdown = ({ children }) => {
   }, [])
 
   return (
-    <div className='relative inline-block text-left' ref={dropdownRef}>
+    <div className='z-1 relative inline-block text-left' ref={dropdownRef}>
       <div>
         <Button
           type='button'
@@ -78,7 +78,7 @@ const Dropdown = ({ children }) => {
 
       <div
         className={clsx(
-          'z-dropdown max-h-50 absolute right-0 mt-2 w-56 origin-top-right',
+          'z-dropdown max-h-60 absolute right-0 mt-2 w-56 origin-top-right',
           'border border-[#e6e6e6]',
           'rounded-lg bg-white shadow-lg',
           'origin-top transform transition duration-300 ease-in-out',
