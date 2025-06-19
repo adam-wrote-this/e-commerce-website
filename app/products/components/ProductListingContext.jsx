@@ -131,11 +131,9 @@ const ProductListingContextProvider = ({ children }) => {
   ])
 
   return (
-    <Suspense>
-      <ProductListingContext.Provider value={value}>
-        {children}
-      </ProductListingContext.Provider>
-    </Suspense>
+    <ProductListingContext.Provider value={value}>
+      {children}
+    </ProductListingContext.Provider>
   )
 }
 
