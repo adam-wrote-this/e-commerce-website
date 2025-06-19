@@ -1,3 +1,4 @@
+'use client'
 import { RiTShirt2Line } from 'react-icons/ri'
 import clsx from 'clsx'
 import ProductCard from '@/app/components/ProductCard'

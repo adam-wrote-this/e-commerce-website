@@ -1,10 +1,12 @@
+'use client'
 import {
   createContext,
   useCallback,
   useContext,
   useEffect,
   useMemo,
-  useState
+  useState,
+  Suspense
 } from 'react'
 import useProductFilters from './hooks/useProductFilters'
 import {
@@ -13,12 +15,14 @@ import {
   COLORS_OPTIONS,
   RATING_OPTIONS
 } from '@/app/constants'
+import { useSearchParams } from 'next/navigation'
 
 const ProductListingContext = createContext()
 
 export const useProductListingContext = () => useContext(ProductListingContext)
 
 const ProductListingContextProvider = ({ children }) => {
+  const searchParams = useSearchParams()
   const [products, setProducts] = useState(null)
   const [isProductsLoading, setIsProductsLoading] = useState(true)
   const {
@@ -31,7 +35,7 @@ const ProductListingContextProvider = ({ children }) => {
     onSelect,
     resetFilters,
     onSortChange
-  } = useProductFilters()
+  } = useProductFilters(searchParams.get('collectionId'))
 
   const getProducts = useCallback(
     async ({ colors, collections, ratings, categories, sort }) => {
@@ -127,9 +131,11 @@ const ProductListingContextProvider = ({ children }) => {
   ])
 
   return (
-    <ProductListingContext.Provider value={value}>
-      {children}
-    </ProductListingContext.Provider>
+    <Suspense>
+      <ProductListingContext.Provider value={value}>
+        {children}
+      </ProductListingContext.Provider>
+    </Suspense>
   )
 }
 

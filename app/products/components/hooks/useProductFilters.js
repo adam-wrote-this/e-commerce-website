@@ -8,9 +8,9 @@ import {
   RATING_OPTIONS
 } from '@/app/constants'
 
-export default function useProductFilters() {
+export default function useProductFilters(collectionId = '') {
   const searchParams = useSearchParams()
-  const collectionId = searchParams.get('collectionId') || ''
+  // const collectionId = searchParams.get('collectionId') || ''
   const isMounted = useRef(false)
 
   const [selectedCollections, setSelectedCollections] = useState(

@@ -1,3 +1,4 @@
+'use client'
 import clsx from 'clsx'
 import { RiFilterLine } from 'react-icons/ri'
 import { useState } from 'react'
