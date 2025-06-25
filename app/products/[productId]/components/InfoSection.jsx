@@ -4,7 +4,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger
-} from '@/app/components/ui/Accordion'
+} from '@/components/ui/Accordion'
 
 import { useProductDetailsContext } from './ProductDetailsContext'
 

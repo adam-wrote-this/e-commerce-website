@@ -82,6 +82,12 @@ const variantClasses = {
     'text-indigo-700',
     'hover:text-indigo-800 focus:text-indigo-800',
     'rounded focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]'
+  ),
+  'gray-link': clsx(
+    'text-neutral-600',
+    'hover:text-neutral-900 focus:text-neutral-900',
+    'rounded focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',
+    'px-0.5'
   )
 }
 
@@ -98,7 +104,8 @@ const variantDisabledClasses = {
   ),
   tertiary: clsx('disabled:bg-none', 'disabled:text-neutral-400'),
   danger: clsx('disabled:bg-none', 'disabled:text-neutral-400'),
-  link: clsx('disabled:text-neutral-400')
+  link: clsx('disabled:text-neutral-400'),
+  'gray-link': clsx('disabled:text-neutral-400')
 }
 
 const Button = ({
@@ -114,13 +121,15 @@ const Button = ({
   href,
   ...props
 }) => {
+  const isLinkVariant = ['link', 'gray-link'].includes(variant)
+
   const commonClasses = clsx(
     'inline-flex items-center justify-center rounded font-medium outline-none cursor-pointer',
     'focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',
     'transition-colors',
     'text-nowrap',
-    variant !== 'link' && heightClasses[size],
-    variant !== 'link' &&
+    !isLinkVariant && heightClasses[size],
+    !isLinkVariant &&
       (variant === 'secondary'
         ? secondaryVariantPaddingClasses[size]
         : paddingClasses[size]),
@@ -136,7 +145,7 @@ const Button = ({
     return (
       <Link
         href={href}
-        variant={variant}
+        variant='unstyled'
         disabled={isDisabled}
         className={clsx(commonClasses, className)}
         {...props}
@@ -190,6 +199,7 @@ const Button = ({
 
   return (
     <button
+      type='button'
       className={clsx(commonClasses, className)}
       disabled={isDisabled}
       {...props}

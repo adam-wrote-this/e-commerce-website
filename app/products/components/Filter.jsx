@@ -2,11 +2,11 @@
 import clsx from 'clsx'
 import { RiFilterLine } from 'react-icons/ri'
 import { useState } from 'react'
-import CheckboxInput from '@/app/components/ui/CheckboxInput'
-import ColorSwatches from '@/app/components/ui/ColorSwatches'
-import SlideOut from '@/app/components/ui/SlideOut'
-import Button from '@/app/components/ui/Button'
-import Rating from '@/app/components/ui/Rating/Rating'
+import CheckboxInput from '@/components/ui/CheckboxInput'
+import ColorSwatches from '@/components/ui/ColorSwatches'
+import SlideOut from '@/components/ui/SlideOut'
+import Button from '@/components/ui/Button'
+import Rating from '@/components/ui/Rating/Rating'
 import {
   Accordion,
   AccordionContent,

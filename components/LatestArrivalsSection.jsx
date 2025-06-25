@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import ProductCard from '@/app/components/ProductCard'
+import ProductCard from '@/components/ProductCard'
 
 const LatestArrivalsSection = ({ products }) => {
   return (

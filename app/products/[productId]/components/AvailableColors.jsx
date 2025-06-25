@@ -1,7 +1,7 @@
 'use client'
 import { useMemo } from 'react'
 
-import ColorSwatches from '@/app/components/ui/ColorSwatches'
+import ColorSwatches from '@/components/ui/ColorSwatches'
 import { COLORS } from '@/app/constants'
 import { useProductDetailsContext } from './ProductDetailsContext'
 import { getUnavailableColors } from '../utils'

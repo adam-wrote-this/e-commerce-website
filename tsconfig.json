@@ -32,6 +32,6 @@
     "app/components/LatestArrivalsSection.jsx",
     "app/components/ui/Button/index.js",
     "app/components/ui/Link/index.js"
-  ],
+, "app/products/page.jsx", "app/products/[productId]/page.jsx"  ],
   "exclude": ["node_modules"]
 }

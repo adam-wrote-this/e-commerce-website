@@ -2,8 +2,8 @@
 import clsx from 'clsx'
 import { useCallback, useMemo } from 'react'
 import { useRouter } from 'next/navigation'
-import Link from '@/app/components/ui/Link'
-import ColorSwatches from '@/app/components/ui/ColorSwatches'
+import Link from '@/components/ui/Link'
+import ColorSwatches from '@/components/ui/ColorSwatches'
 import { getUnavailableColors } from '@/app/products/[productId]/utils'
 import { COLORS } from '@/app/constants'
 

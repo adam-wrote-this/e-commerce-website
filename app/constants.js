@@ -11,44 +11,37 @@ export const COLORS = {
   pink: { value: '#EC4899', label: 'Pink' }
 }
 
+export const SIZE = {
+  xs: { short: 'XS', long: 'Extra Small' },
+  sm: { short: 'S', long: 'Small' },
+  md: { short: 'M', long: 'Medium' },
+  lg: { short: 'L', long: 'Large' },
+  xl: { short: 'XL', long: 'Extra Large' }
+}
+
 export const COLLECTIONS_OPTIONS = {
   title: 'Collections',
   key: 'collection',
   items: [
     {
       name: 'Latest arrivals',
-      value: 'latest'
+      value: 'latest',
+      href: '/products?collectionId=latest'
     },
     {
       name: 'Urban Oasis',
-      value: 'urban'
+      value: 'urban',
+      href: '/products?collectionId=urban'
     },
     {
       name: 'Cozy Comfort',
-      value: 'cozy'
+      value: 'cozy',
+      href: '/products?collectionId=cozy'
     },
     {
       name: 'Fresh Fusion',
-      value: 'fresh'
-    }
-  ]
-}
-
-export const CATEGORY_OPTIONS = {
-  title: 'Category',
-  key: 'category',
-  items: [
-    {
-      name: 'Unisex',
-      value: 'unisex'
-    },
-    {
-      name: 'Women',
-      value: 'women'
-    },
-    {
-      name: 'Men',
-      value: 'men'
+      value: 'fresh',
+      href: '/products?collectionId=fresh'
     }
   ]
 }
@@ -96,6 +89,28 @@ export const COLORS_OPTIONS = {
     {
       color: COLORS.pink.value,
       value: 'pink'
+    }
+  ]
+}
+
+export const CATEGORY_OPTIONS = {
+  title: 'Category',
+  key: 'category',
+  items: [
+    {
+      name: 'Unisex',
+      value: 'unisex',
+      href: '/products?categoryId=unisex'
+    },
+    {
+      name: 'Women',
+      value: 'women',
+      href: '/products?categoryId=women'
+    },
+    {
+      name: 'Men',
+      value: 'men',
+      href: '/products?categoryId=men'
     }
   ]
 }
@@ -154,3 +169,70 @@ export const SORT_OPTIONS = [
     direction: 'desc'
   }
 ]
+
+export const FIELD_NAME = {
+  email: 'Email',
+  country: 'Country',
+  firstName: 'First name',
+  lastName: 'Last name',
+  address1: 'Address',
+  address2: '',
+  city: 'City',
+  state: 'State',
+  zip: 'Zip',
+  deliveryMethod: 'Delivery method',
+  cardNumber: 'Card number',
+  nameOnCard: 'Name on card',
+  cardExpiry: 'Expiry',
+  cardCvv: 'CVV'
+}
+
+export const COUNTRIES = [
+  {
+    id: 'US',
+    name: 'United States'
+  },
+  {
+    id: 'IN',
+    name: 'India'
+  }
+]
+
+export const STATES = {
+  US: [
+    {
+      id: 'AZ',
+      name: 'Arizona'
+    },
+    {
+      id: 'CA',
+      name: 'California'
+    },
+    {
+      id: 'FL',
+      name: 'Florida'
+    },
+    {
+      id: 'IA',
+      name: 'Iowa'
+    }
+  ],
+  IN: [
+    {
+      id: 'AP',
+      name: 'Andhra Pradesh'
+    },
+    {
+      id: 'AS',
+      name: 'Assam'
+    },
+    {
+      id: 'JH',
+      name: 'Jharkhand'
+    },
+    {
+      id: 'KA',
+      name: 'Karnataka'
+    }
+  ]
+}

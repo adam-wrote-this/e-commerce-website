@@ -1,8 +1,8 @@
 'use client'
 import { RiTShirt2Line } from 'react-icons/ri'
 import clsx from 'clsx'
-import ProductCard from '@/app/components/ProductCard'
-import Button from '@/app/components/ui/Button'
+import ProductCard from '@/components/ProductCard'
+import Button from '@/components/ui/Button'
 import { useProductListingContext } from './ProductListingContext'
 
 const ProductListingSection = () => {

@@ -1,5 +1,5 @@
 'use client'
-import CartControl from '@/app/components/CartControl'
+import CartControl from '@/components/CartControl'
 import { useProductDetailsContext } from './ProductDetailsContext'
 
 const ProductQuantity = ({ availableStock }) => {

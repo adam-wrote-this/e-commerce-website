@@ -1,5 +1,5 @@
 'use client'
-import { Dropdown, DropdownItem } from '@/app/components/ui/Dropdown'
+import { Dropdown, DropdownItem } from '@/components/ui/Dropdown'
 
 import { useProductListingContext } from './ProductListingContext'
 import { SORT_OPTIONS } from '@/app/constants'
