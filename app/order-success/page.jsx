@@ -6,7 +6,7 @@ import OrderAmountSummary from '@/components/OrderAmountSummary'
 import OrderProductCard from '@/components/OrderProductCard'
 
 import Button from '@/components/ui/Button'
-import { Visa } from '../Checkout/components/PaymentCard'
+import { Visa } from '@/app/checkout/components/PaymentCard'
 import { formatInternationalPhoneNumber } from '@/app/utils'
 
 const OrderSuccessPage = () => {

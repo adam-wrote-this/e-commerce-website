@@ -7,7 +7,7 @@ import { RiArrowLeftSLine } from 'react-icons/ri'
 
 import CheckoutFormSection from './components/CheckoutFormSection'
 import CheckoutOrderSummary from './components/CheckoutOrderSummary'
-import StockChangedModal from '../Cart/components/StockChangedModal'
+import StockChangedModal from '@/app/cart/components/StockChangedModal'
 
 import Button from '@/components/ui/Button'
 import { useToast } from '@/app/context/ToastContext'
