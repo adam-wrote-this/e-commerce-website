@@ -1,3 +1,4 @@
+'use client'
 import clsx from 'clsx'
 import { useCallback } from 'react'
 import { useRouter } from 'next/navigation'
