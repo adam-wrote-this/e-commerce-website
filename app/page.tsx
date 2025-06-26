@@ -1,6 +1,4 @@
 'use client'
-import Button from '@/components/ui/Button/Button'
-import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { useToastContext } from '@/app/context/ToastContext'
 import Toast from '@/components/ui/Toast'
