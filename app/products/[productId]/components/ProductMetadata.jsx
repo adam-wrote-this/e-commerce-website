@@ -1,34 +1,63 @@
 'use client'
+import { useMemo } from 'react'
 import clsx from 'clsx'
 import { useMediaQuery } from 'usehooks-ts'
-import { useMemo } from 'react'
 
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
-import Rating from '@/components/ui/Rating'
 import AvailableColors from './AvailableColors'
 import AvailableSizes from './AvailableSizes'
 import ProductQuantity from './ProductQuantity'
 import InfoSection from './InfoSection'
 
 import { useProductDetailsContext } from './ProductDetailsContext'
-import { getInventoryData } from '../utils'
+import { useCartContext } from '@/app/context/CartContext'
+import { getInventoryData, getSelectedColorImages } from '../utils'
+import ProductReviews from './ProductReviews'
 
 const ProductMetadata = () => {
   const isMobileAndBelow = useMediaQuery('(max-width: 767px)')
   const { product, selectedColor, selectedSize, itemQuantity } =
     useProductDetailsContext()
+  const { addToCart } = useCartContext()
 
   const { name, description, reviews, rating } = product
+
   const inventoryData = useMemo(
     () =>
       getInventoryData({ product, color: selectedColor, size: selectedSize }),
     [selectedColor, selectedSize, product]
   )
+  const images = getSelectedColorImages({ product, color: selectedColor })
   const { discount_percentage, list_price, sale_price, stock } = inventoryData
 
   const roundedRating = Math.round(rating * 10) / 10
   const hasDiscount = !!discount_percentage
+
+  const onAddToCart = (e) => {
+    e.preventDefault()
+
+    const item = {
+      product: {
+        product_id: product.product_id,
+        name: product.name,
+        description: product.description
+      },
+      quantity: itemQuantity,
+      unit: {
+        color: inventoryData.color,
+        size: inventoryData.size,
+        sku: inventoryData.sku,
+        stock: inventoryData.stock,
+        sale_price: inventoryData.sale_price,
+        list_price: inventoryData.list_price,
+        image_url: images[0].image_url
+      },
+      total_sale_price: itemQuantity * inventoryData.sale_price,
+      total_list_price: itemQuantity * inventoryData.list_price
+    }
+    addToCart(item)
+  }
 
   return (
     <div>
@@ -60,37 +89,14 @@ const ProductMetadata = () => {
             </div>
           )}
 
-          <div className={clsx('flex flex-wrap items-center gap-2', 'mt-3')}>
-            <div className='text-xl text-neutral-900'>{roundedRating ?? 0}</div>
-            <Rating value={roundedRating ?? 0} />
-            {reviews > 0 ? (
-              <Button
-                label={`See all ${reviews} reviews`}
-                href='#'
-                variant='link'
-                className='text-sm'
-              />
-            ) : (
-              <div className='flex gap-[2px]'>
-                <span className='text-sm text-neutral-900'>
-                  No reviews yet.
-                </span>
-                <Button
-                  label='Be the first.'
-                  href='#'
-                  variant='link'
-                  className='text-sm'
-                />
-              </div>
-            )}
-          </div>
+          <ProductReviews rating={roundedRating} reviews={reviews} />
         </div>
 
         <p className='text-neutral-600'>{description}</p>
       </section>
 
       <section aria-labelledby='product-options' className='mt-8'>
-        <form className='flex flex-col gap-8'>
+        <form className='flex flex-col gap-8' onSubmit={onAddToCart}>
           <AvailableColors />
           <AvailableSizes />
           <ProductQuantity availableStock={stock} />
@@ -104,6 +110,7 @@ const ProductMetadata = () => {
 
           <Button
             label='Add to Cart'
+            type='submit'
             size={isMobileAndBelow ? 'xl' : '2xl'}
             isDisabled={itemQuantity === 0 || stock === 0}
           />

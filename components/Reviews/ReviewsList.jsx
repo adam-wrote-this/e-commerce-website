@@ -17,14 +17,14 @@ const ReviewsList = () => {
 
   if (reviews.length === 0) {
     return (
-      <div class='flex h-full flex-col items-center justify-center gap-5'>
+      <div className='flex h-full flex-col items-center justify-center gap-5'>
         <IconWrapper icon={RiChatSmile3Line} />
         <div
-          class={clsx(
+          className={clsx(
             "gap-2', 'text-neutral-900 flex flex-col items-center text-center"
           )}
         >
-          <span class='text-xl font-medium'>No reviews yet!</span>
+          <span className='text-xl font-medium'>No reviews yet!</span>
           <span>Be the first to review this product</span>
         </div>
       </div>
