@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import { RiShoppingBag3Line } from 'react-icons/ri'
 import { Link as RouterLink } from 'react-router-dom'
+import Link from 'next/link'
 
 import { useCartContext } from '@/app/context/CartContext'
 
@@ -9,8 +10,8 @@ const CartButton = ({ disabled }) => {
   const count = cartItems.length
 
   return (
-    <RouterLink
-      to='/cart'
+    <Link
+      href='/cart'
       aria-label='Cart button'
       className={clsx(
         'relative rounded text-neutral-600',
@@ -36,7 +37,7 @@ const CartButton = ({ disabled }) => {
           {count}
         </div>
       )}
-    </RouterLink>
+    </Link>
   )
 }
 

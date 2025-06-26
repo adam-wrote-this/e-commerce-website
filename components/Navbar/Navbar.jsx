@@ -1,3 +1,4 @@
+'use client'
 import clsx from 'clsx'
 
 import Link from '@/components/ui/Link'
@@ -27,7 +28,7 @@ const Navbar = ({ className }) => {
         className
       )}
     >
-      <Link variant='unstyled' to='/'>
+      <Link variant='unstyled' href='/'>
         <img
           src='https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/logo.svg'
           alt="Stylenest's Logo"
@@ -35,7 +36,13 @@ const Navbar = ({ className }) => {
       </Link>
       <nav className={clsx('hidden flex-1 gap-8', 'lg:flex')}>
         {links.map((link) => (
-          <Link key={link.href} to={link.href} variant='gray' type='nav' end>
+          <Link
+            key={link.href}
+            href={link.href}
+            variant='gray'
+            type='nav'
+            // end={true}
+          >
             {link.name}
           </Link>
         ))}

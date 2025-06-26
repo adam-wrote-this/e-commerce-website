@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react'
 import clsx from 'clsx'
 import { createPortal } from 'react-dom'
@@ -56,7 +57,7 @@ const MobileNavMenu = ({ links }) => {
               {links.map((link) => (
                 <Link
                   key={link.href}
-                  to={link.href}
+                  href={link.href}
                   onClick={() => setOpenMenu(false)}
                   className='px-3 py-2 text-sm'
                   variant='gray'

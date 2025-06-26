@@ -1,10 +1,11 @@
 'use client'
-import { Suspense } from 'react'
-import ProductListingContextProvider from './components/ProductListingContext'
 import clsx from 'clsx'
+import { Suspense } from 'react'
+
 import Filter from './components/Filter'
-import SortByFilter from './components/SortByFilter'
+import ProductListingContextProvider from './components/ProductListingContext'
 import ProductListingSection from './components/ProductListingSection'
+import SortByFilter from './components/SortByFilter'
 
 const ProductListingPage = () => {
   return (

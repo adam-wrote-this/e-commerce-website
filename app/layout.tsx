@@ -6,6 +6,7 @@ import ScrollToTop from '@/components/ScrollToTop'
 import ToastContextProvider from '@/app/context/ToastContext'
 import CartContextProvider from '@/app/context/CartContext'
 import Footer from '@/components/Footer'
+import Navbar from '@/components/Navbar'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -36,6 +37,7 @@ export default function RootLayout({
         <ScrollToTop />
         <ToastContextProvider>
           <CartContextProvider>
+            <Navbar className='mt-4' />
             <main className='mx-auto min-h-screen max-w-[1440px] p-4'>
               <div
                 className={clsx(
